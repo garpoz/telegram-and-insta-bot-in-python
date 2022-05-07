@@ -1,0 +1,46 @@
+/*
+garpozir@gmail.com
+*/
+
+#ck{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#img-id{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  max-width:100%;
+  height:auto;
+  border: 3px solid black;
+}
+
+.text{
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "vazir";
+  font-size: 18px;
+  color:black;
+  text-shadow: 1px 1px 8px #3576de;
+}
+
+.bottom{
+  position: absolute;
+  top: 96%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "vazir";
+  font-size: 30px;
+  color:black;
+  text-shadow: 3px 3px 8px #3576de;
+}
+
+@font-face{
+    font-family:"vazir";
+    src:url("./Vazir-Black.ttf")
+}
