@@ -1,11 +1,14 @@
-#! /data/data/com.termux/files/usr/bin/python
+#! /usr/bin/python3
+# behrouz_ashraf
 # garpozir@gmail.com
+# -*- coding: utf-8 -*-
 
 
 import sqlite3, random
 
 
 def main() -> None:
+    global rnd
     rnd = str(random.randint(1, 10243))
     con = sqlite3.connect("./jomle.sqlite")
     cur = con.cursor()
@@ -38,3 +41,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    rnd = rnd

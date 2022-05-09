@@ -1,5 +1,7 @@
-#! /data/data/com.termux/files/usr/bin/python
+#! /usr/bin/python3
+# behrouz_ashraf
 # garpozir@gmail.com
+# -*- coding: utf-8 -*-
 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -28,5 +30,5 @@ d.find_element_by_xpath("//button[normalize-space()='Save Info']").click()
 time.sleep(10)
 d.find_element_by_xpath("//img[@class='_6q-tv']").send_keys('./image.png')
 time.sleep(5)
-d.get_screenshot_as_file("./screenShot.png")
-d.close()
+d.get_screenshot_as_file("./story.png")
+d.quit()

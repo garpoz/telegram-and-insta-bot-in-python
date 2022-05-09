@@ -1,6 +1,7 @@
-#! /data/data/com.termux/files/usr/bin/python
+#! /usr/bin/python3
+# behrouz_ashraf
 # garpozir@gmail.com
-
+# -*- coding: utf-8 -*-
 import sqlite3
 from time import sleep
 
