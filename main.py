@@ -32,15 +32,9 @@ d.get_screenshot_as_file("./story.png")
 d.quit()
 time.sleep(0.5)
 im = Image.open("./story.png")
-xc = im.width / 2
-yc = im.height / 2
-x1 = xc - 10
-y1 = yc - 10
-x2 = xc - 10
-y2 = yc - 10
-im = im.crop((x1, y1, x2, y2))
-im=im.convert('RGB')
-im.save("./story.jpg")
+xc,yc = im.size
+im = im.crop((xc/2, yc/2, xc, yc))
+im.save("./story.png")
 time.sleep(0.5)
 shutil.copy("./story.png", f"./archive/{rnd}.png")
 
