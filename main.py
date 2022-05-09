@@ -32,9 +32,21 @@ d.get_screenshot_as_file("./story.png")
 d.quit()
 time.sleep(0.5)
 im = Image.open("./story.png")
-xc,yc = im.size
-im = im.crop((xc/2, yc/2, xc, yc))
+xc, yc = im.size
+ppix = im.load()
+for i in range(xc):
+    if str(ppix[i, 50]) == "(0, 0, 0, 255)":
+        break
+i -= 2
+if i < 0:
+    i = 0
+for z in range(yc):
+    if str(ppix[200, z]) == "(0, 0, 0, 255)":
+        break
+z -= 2
+if z < 0:
+    z = 0
+im = im.crop((i, z, xc - i, yc - z))
 im.save("./story.png")
 time.sleep(0.5)
 shutil.copy("./story.png", f"./archive/{rnd}.png")
-
