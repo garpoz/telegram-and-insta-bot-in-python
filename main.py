@@ -7,6 +7,7 @@ import time, shutil
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import create_image
+from PIL import Image
 
 create_image.main()
 
@@ -26,8 +27,20 @@ d.get(
 
 S = lambda X: d.execute_script("return document.body.parentNode.scroll" + X)
 d.set_window_size(S("Width"), S("Height"))
-time.sleep(1)
+time.sleep(0.5)
 d.get_screenshot_as_file("./story.png")
 d.quit()
-
+time.sleep(0.5)
+im = Image.open("./story.png")
+xc = im.width / 2
+yc = im.height / 2
+x1 = xc - 10
+y1 = yc - 10
+x2 = xc - 10
+y2 = yc - 10
+im = im.crop((x1, y1, x2, y2))
+im=im.convert('RGB')
+im.save("./story.jpg")
+time.sleep(0.5)
 shutil.copy("./story.png", f"./archive/{rnd}.png")
+
