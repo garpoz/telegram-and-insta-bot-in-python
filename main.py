@@ -3,15 +3,18 @@
 # garpozir@gmail.com
 # -*- coding: utf-8 -*-
 
-import time, shutil
+import time, shutil, os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import create_image
 from PIL import Image
 
+
+os.system("cls" if os.name == "nt" else "clear")
 create_image.main()
 
 rnd = create_image.rnd
+noe = create_image.noe
 chrome_options = Options()
 agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36"
 chrome_options.headless = True
@@ -49,4 +52,8 @@ if z < 0:
 im = im.crop((i, z, xc - i, yc - z))
 im.save("./story.png")
 time.sleep(0.5)
-shutil.copy("./story.png", f"./archive/{rnd}.png")
+if noe == "roze":
+    noe = "1"
+else:
+    noe = "2"
+shutil.copy("./story.png", f"./archive/{noe}/{rnd}.png")

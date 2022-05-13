@@ -4,11 +4,24 @@
 # -*- coding: utf-8 -*-
 
 
-import sqlite3, random
+import sqlite3, random, glob
 
 
 def main() -> None:
-    global rnd
+    global rnd, noe
+    while True:
+        print("1)rooz")
+        print("2)shab")
+        noe = input("1 ya 2: ")
+        if noe in ("12") and len(noe) == 1:
+            break
+    if noe == "1":
+        noe = "roze"
+    else:
+        noe = "shab"
+    rnd_png = glob.glob(f"./format/{noe}*.png")
+    rnd_png = random.choice(rnd_png)
+    rnd_png = rnd_png.replace("format/", "")
     rnd = str(random.randint(1, 10243))
     con = sqlite3.connect("./jomle.sqlite")
     cur = con.cursor()
@@ -27,14 +40,14 @@ def main() -> None:
 </head>
 <body>
     <div class="row" id="ck">
-        <img id="img-id" class="row" src="./story_theme.jpg" alt="Error Load Image">
+        <img id="img-id" class="row" src="{rnd_png}" alt="Error Load Image">
         <div class="bottom">{esm}</div>
         <div class="text">{matn}</div>
     </div>
 </body>
 </html>
     """
-    with open("./format/index.html", "w",encoding="utf8") as index:
+    with open("./format/index.html", "w", encoding="utf8") as index:
         index.write(html_text)
         index.close()
 
@@ -42,3 +55,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
     rnd = rnd
+    noe = noe
