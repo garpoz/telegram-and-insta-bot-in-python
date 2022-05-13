@@ -49,7 +49,7 @@ for z in range(yc):
 z -= 2
 if z < 0:
     z = 0
-im = im.crop((i, z, xc - i, yc - z))
+im = im.crop((i, 5, xc - i, yc - 5))
 im.save("./story.png")
 time.sleep(0.5)
 if noe == "roze":
