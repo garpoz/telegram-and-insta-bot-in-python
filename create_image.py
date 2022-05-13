@@ -34,7 +34,7 @@ def main() -> None:
 </body>
 </html>
     """
-    with open("./format/index.html", "w") as index:
+    with open("./format/index.html", "w",encoding="utf8") as index:
         index.write(html_text)
         index.close()
 
